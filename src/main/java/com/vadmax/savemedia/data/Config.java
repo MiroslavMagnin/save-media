@@ -5,9 +5,9 @@ package com.vadmax.savemedia.data;
  * Пока что просто набор статичных переменных
  */
 public class Config {
-    public static String YtDlpLocation = "C:\\Program Files\\yt-dlp\\yt-dlp.exe"; // Путь к yt-dlp.exe
-    public static String savePath = "M:\\Java Projects\\save-media";
-    public static String url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-    public static String fileName = "video #1";
+    public static String YtDlpLocation = "src/main/resources/yt-dlp/yt-dlp.exe"; // Путь к yt-dlp.exe
+    public static String savePath;
+    public static String url;
+    public static String fileName;
 
 }
