@@ -5,12 +5,77 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.vadmax.savemedia.HelloController">
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Slider?>
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.vadmax.savemedia.gui.MainWindowController" fx:id="mainVBox">
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
   </padding>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
+  <VBox alignment="CENTER">
+    <Label text="Put a link to the video:"/>
+    <HBox alignment="CENTER">
+      <TextField fx:id="videoLink"/>
+      <Button text="Clear" onAction="#clearText"/>
+    </HBox>
+  </VBox>
+
+  <VBox alignment="CENTER">
+    <Label text="Choose the format:"></Label>
+    <HBox alignment="CENTER">
+      <ComboBox fx:id="videoFormat">
+        <items>
+          <FXCollections fx:factory="observableArrayList">
+            <String fx:value="Best [video + audio]"/>
+            <String fx:value="Middle [video + audio]"/>
+            <String fx:value="Worst [video + audio]"/>
+            <String fx:value="Best [only video]"/>
+            <String fx:value="Middle [only video]"/>
+            <String fx:value="Worst [only video]"/>
+            <String fx:value="Best [only audio]"/>
+            <String fx:value="Middle [only audio]"/>
+            <String fx:value="Worst [only audio]"/>
+          </FXCollections>
+        </items>
+
+        <value>
+          <String fx:value="Best [video + audio]"/>
+        </value>
+      </ComboBox>
+    </HBox>
+  </VBox>
+
+  <VBox alignment="CENTER">
+    <Label text="Select the downloader folder:"/>
+    <HBox alignment="CENTER">
+      <TextField fx:id="downloadPath"/>
+      <Button text="Browse..." onAction="#browser"/>
+    </HBox>
+  </VBox>
+
+  <HBox alignment="CENTER">
+    <Button text="Download" onAction="#download"/>
+  </HBox>
+
+<!--  Сделать слайдер с процентом загрузки-->
+<!--  <Slider></Slider>-->
+
+  <VBox alignment="CENTER">
+    <Label text="History:"></Label>
+    <TableView fx:id="historyTable">
+    </TableView>
+  </VBox>
+
+  <VBox alignment="CENTER">
+    <Label text="Log:"/>
+    <TextArea fx:id="logArea" text="There will be log" editable="false" minWidth="100" minHeight="50"/>
+  </VBox>
 </VBox>
