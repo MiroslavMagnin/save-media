@@ -1,15 +1,15 @@
 package com.vadmax.savemedia.downloadsettings;
 
 public enum VideoQuality {
-    BEST("\"best\""),
-    MIDDLE("\"bestvideo[height<720]+bestaudio\""),
-    WORST("\"worst\""),
-    BEST_VIDEO("\"bestvideo\""),
-    MIDDLE_VIDEO("\"bestvideo[height<720]\""),
-    WORST_VIDEO("\"worstvideo\""),
-    BEST_AUDIO("\"bestaudio\""),
-    MIDDLE_AUDIO("\"bestvideo[height<720]+bestaudio\""),
-    WORST_AUDIO("\"worstaudio\"");
+    BEST("best"),
+    MIDDLE("bestvideo[height<720]+bestaudio"),
+    WORST("worst"),
+    BEST_VIDEO("bestvideo"),
+    MIDDLE_VIDEO("bestvideo[height<720]"),
+    WORST_VIDEO("worstvideo"),
+    BEST_AUDIO("bestaudio"),
+    MIDDLE_AUDIO("bestvideo[height<720]+bestaudio"),
+    WORST_AUDIO("worstaudio");
 
     private String quality;
     VideoQuality(String quality) {

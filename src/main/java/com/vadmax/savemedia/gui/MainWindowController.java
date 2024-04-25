@@ -1,10 +1,9 @@
 package com.vadmax.savemedia.gui;
 
 import com.vadmax.savemedia.cmd.Cmd;
+import com.vadmax.savemedia.data.Config;
 import com.vadmax.savemedia.downloadsettings.RowHistoryTable;
 import com.vadmax.savemedia.downloadsettings.VideoQuality;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -101,10 +100,13 @@ public class MainWindowController {
 
     @FXML
     public void download() {
-        Cmd dl = new Cmd(videoLink.getText(),
-                VideoQuality.FormatToVideoQuality.toVideoQuality(videoFormat.getValue().toString()),
-                downloadPath.getText(), "%(title)s");
-        historyTable.getItems().add(new RowHistoryTable("default", downloadPath.getText()));
+        Cmd dl = new Cmd.Builder(videoLink.getText())
+                .quality(VideoQuality.FormatToVideoQuality.toVideoQuality(videoFormat.getValue().toString()))
+                .path(downloadPath.getText())
+                .fileName()
+                .build();
+        dl.runCmd();
+        historyTable.getItems().add(new RowHistoryTable(Config.fileName, downloadPath.getText()));
     }
 
     public void clearText() {

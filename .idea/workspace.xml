@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e945c45-ee63-429e-86c5-c443595a75ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/Launcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/Notes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/Cmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/data/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/data/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/downloadsettings/RowHistoryTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/downloadsettings/VideoQuality.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/exception/SaveTranslationsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/gui/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4e945c45-ee63-429e-86c5-c443595a75ae" name="Changes" comment="Добавление yt-dlp.exe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/MainWindowController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/SaveMediaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/SaveMediaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/main-window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/Cmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/Cmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/downloadsettings/VideoQuality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/downloadsettings/VideoQuality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/gui/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/gui/MainWindowController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +55,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;M:/Java Projects/save-media&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.13809524&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.35827664&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
@@ -78,6 +64,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="M:\Java Projects\save-media\src\main\java\com\vadmax\savemedia" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\Java Projects\save-media\src\main\resources\yt-dlp" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.vadmax.savemedia" />
@@ -147,6 +136,31 @@
       <option name="presentableId" value="Default" />
       <updated>1713860842670</updated>
     </task>
+    <task id="LOCAL-00001" summary="Первая рабочая версия [GUI]">
+      <option name="closed" value="true" />
+      <created>1713951643173</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713951643173</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Первая рабочая версия [GUI]">
+      <option name="closed" value="true" />
+      <created>1713951760514</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713951760514</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Добавление yt-dlp.exe">
+      <option name="closed" value="true" />
+      <created>1713973424716</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713973424716</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,5 +173,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Первая рабочая версия [GUI]" />
+    <MESSAGE value="Добавление yt-dlp.exe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление yt-dlp.exe" />
   </component>
 </project>
