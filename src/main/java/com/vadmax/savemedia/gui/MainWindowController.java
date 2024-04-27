@@ -1,9 +1,11 @@
 package com.vadmax.savemedia.gui;
 
+import com.almasb.fxgl.core.collection.Array;
 import com.vadmax.savemedia.cmd.Cmd;
 import com.vadmax.savemedia.data.Config;
 import com.vadmax.savemedia.downloadsettings.RowHistoryTable;
 import com.vadmax.savemedia.downloadsettings.VideoQuality;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -16,8 +18,12 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.awt.Desktop;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainWindowController {
     @FXML
@@ -100,13 +106,27 @@ public class MainWindowController {
 
     @FXML
     public void download() {
-        Cmd dl = new Cmd.Builder(videoLink.getText())
-                .quality(VideoQuality.FormatToVideoQuality.toVideoQuality(videoFormat.getValue().toString()))
-                .path(downloadPath.getText())
-                .fileName()
-                .build();
-        dl.runCmd();
-        historyTable.getItems().add(new RowHistoryTable(Config.fileName, downloadPath.getText()));
+        Thread getFileNameThread =  new Thread(() -> {
+            ArrayList<String> arr = new ArrayList<>(Arrays.asList("--print", "title", "--windows-filenames")); // Команды с получением всех данных о видео
+            Cmd gd = new Cmd.Builder(videoLink.getText())
+                    .anyCommand(arr)
+                    .build();
+            ArrayList<String> videoTitle = gd.runCmdWithOutput();
+            Config.fileName = videoTitle.get(1);
+            System.out.println(videoTitle);
+
+            Cmd dl = new Cmd.Builder(videoLink.getText())
+                    .quality(VideoQuality.FormatToVideoQuality.toVideoQuality(videoFormat.getValue().toString()))
+                    .path(downloadPath.getText())
+                    .build();
+            dl.runCmd();
+
+            Platform.runLater(() -> {
+                historyTable.getItems().add(new RowHistoryTable(Config.fileName, downloadPath.getText()));
+            });
+        });
+        getFileNameThread.start();
+
     }
 
     public void clearText() {

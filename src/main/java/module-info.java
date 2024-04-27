@@ -9,6 +9,7 @@ module com.vadmax.savemedia {
     requires com.almasb.fxgl.all;
     requires org.jdom2;
     requires java.desktop;
+    requires org.apache.commons.io;
 
     opens com.vadmax.savemedia to javafx.fxml;
     opens com.vadmax.savemedia.downloadsettings to javafx.base;
