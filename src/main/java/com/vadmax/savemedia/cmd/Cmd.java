@@ -4,16 +4,13 @@ import com.vadmax.savemedia.data.Config;
 import com.vadmax.savemedia.downloadsettings.VideoQuality;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.concurrent.locks.Condition;
 
 public class Cmd {
     /**
@@ -28,7 +25,7 @@ public class Cmd {
      */
     private String link;
     @FXML
-    public static TextArea logArea;
+    public static ListView logList;
 
     private Cmd() {}
 
@@ -100,8 +97,8 @@ public class Cmd {
     private void logOutput(InputStream inputStream, String prefix) {
         new Thread(() -> {
             try {
-                StringBuilder textLog = new StringBuilder(); // Весь текст, который будет отображатся в TextArea
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "windows-1251"));
+                reader.readLine(); // Первая строка всегда - это то "Activate code page 65001", так игнорируем её
                 String line;
                 while ((line = reader.readLine()) != null) {
                     System.out.println(prefix + line);
@@ -110,29 +107,21 @@ public class Cmd {
                         Config.fileName = line.substring(line.indexOf("\\"), line.lastIndexOf("."));
                     }
 
-                    // Обновление процента загрузки (удаляем прошлую строку с процентом и ставим новую)
-                    if (line.startsWith("[download]") && line.contains("% of")) {
-                        // Удаляем предыдущее вхождение [download]
-                        int lastDownloadLineIndex = textLog.lastIndexOf("[download]");
-
-                        /**
-                         * Исправить ошибку с тем, что строка
-                         * [download] Destination: M:\Вариант Яндекс Учебника №6  КЕГЭ по информатике 2024 [Xm9j52mejOA].mp4
-                         * не выводится в textLog
-                         */
-
-                        if (lastDownloadLineIndex != -1) {
-                            textLog.delete(lastDownloadLineIndex, textLog.length());
-                        }
-                        textLog.append(line);
-                    } else {
-                        textLog.append(line).append("\n");
-                    }
-
-                    // Выводим textLog в TextArea
+                    // Выводим log в ListView
+                    String finalLine = line;
                     Platform.runLater(() -> {
-                        logArea.setText(textLog.toString());
-                        logArea.setScrollTop(Double.MAX_VALUE); // Автопрокрутка вниз, её надо реализовать получше
+                        // Обновление процента загрузки (удаляем прошлую строку с процентом и ставим новую)
+                        if (!logList.getItems().isEmpty()) {
+                            String lastLogLine = logList.getItems().getLast().toString();
+
+                            if (finalLine.startsWith("[download]") && finalLine.contains("% of") &&
+                                    lastLogLine.startsWith("[download]") && lastLogLine.contains("% of")) {
+                                logList.getItems().removeLast();
+                            }
+                        }
+
+                        logList.getItems().add(finalLine);
+                        logList.scrollTo(logList.getItems().getLast()); // Автопрокрутка вниз, её надо реализовать получше
                     });
                 }
 

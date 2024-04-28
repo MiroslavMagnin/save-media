@@ -1,6 +1,5 @@
 package com.vadmax.savemedia.gui;
 
-import com.almasb.fxgl.core.collection.Array;
 import com.vadmax.savemedia.cmd.Cmd;
 import com.vadmax.savemedia.data.Config;
 import com.vadmax.savemedia.downloadsettings.RowHistoryTable;
@@ -18,10 +17,8 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.awt.Desktop;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -37,11 +34,24 @@ public class MainWindowController {
     @FXML
     private TableView historyTable;
     @FXML
-    public TextArea logArea;
+    public ListView logList;
+
 
     public void initialize() {
         // Инициализируем TextArea для класса, который будет в этот TextArea выводить строки выполнения библиотеки yt-dlp
-        Cmd.logArea = logArea;
+        Cmd.logList = logList;
+        logList.setCellFactory(param -> new ListCell<String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item);
+                    setWrapText(true);
+                }
+            }
+        });
 
         // Создаем таблицу с историей скачанных видео
         historyTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -106,7 +116,7 @@ public class MainWindowController {
 
     @FXML
     public void download() {
-        Thread getFileNameThread =  new Thread(() -> {
+        new Thread(() -> {
             ArrayList<String> arr = new ArrayList<>(Arrays.asList("--print", "title", "--windows-filenames")); // Команды с получением всех данных о видео
             Cmd gd = new Cmd.Builder(videoLink.getText())
                     .anyCommand(arr)
@@ -124,9 +134,7 @@ public class MainWindowController {
             Platform.runLater(() -> {
                 historyTable.getItems().add(new RowHistoryTable(Config.fileName, downloadPath.getText()));
             });
-        });
-        getFileNameThread.start();
-
+        }).start();
     }
 
     public void clearText() {

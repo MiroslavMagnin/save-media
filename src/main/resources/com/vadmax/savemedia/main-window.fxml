@@ -14,6 +14,7 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ListView?>
 <VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.vadmax.savemedia.gui.MainWindowController" fx:id="mainVBox">
   <padding>
@@ -74,8 +75,14 @@
     </TableView>
   </VBox>
 
+<!--  <VBox alignment="CENTER">-->
+<!--    <Label text="Log:"/>-->
+<!--    <TextArea fx:id="logArea" text="There will be log" editable="false" minWidth="100" minHeight="100"/>-->
+<!--  </VBox>-->
+
   <VBox alignment="CENTER">
-    <Label text="Log:"/>
-    <TextArea fx:id="logArea" text="There will be log" editable="false" minWidth="100" minHeight="100"/>
+    <Label text="Log List:"/>
+    <ListView fx:id="logList" minWidth="100" minHeight="100"/>
   </VBox>
+
 </VBox>
