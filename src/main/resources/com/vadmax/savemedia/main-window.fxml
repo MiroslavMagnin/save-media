@@ -16,6 +16,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
 <VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.vadmax.savemedia.gui.MainWindowController" fx:id="mainVBox">
   <padding>
@@ -25,7 +26,7 @@
   <VBox alignment="CENTER">
     <Label text="Put a link to the video:"/>
     <HBox alignment="CENTER">
-      <TextField fx:id="videoLink"/>
+      <TextField fx:id="videoLink" minWidth="250" minHeight="20"/>
       <Button text="Clear" onAction="#clearText"/>
     </HBox>
   </VBox>
@@ -58,19 +59,18 @@
   <VBox alignment="CENTER">
     <Label text="Select the downloader folder:"/>
     <HBox alignment="CENTER">
-      <TextField fx:id="downloadPath"/>
+      <TextField fx:id="downloadPath" minWidth="250" minHeight="20"/>
       <Button text="Browse..." onAction="#browser"/>
     </HBox>
   </VBox>
 
   <HBox alignment="CENTER">
-    <Button text="Download" onAction="#download"/>
+    <Button fx:id="downloadButton" text="Download" onAction="#download"/>
   </HBox>
 
-<!-- TODO Сделать слайдер с процентом загрузки -->
   <VBox alignment="CENTER">
     <Label text="Download progress:"/>
-    <ProgressBar fx:id="downloadProgress" minWidth="250" minHeight="25"/>
+    <ProgressBar fx:id="downloadProgress" minWidth="250" minHeight="30"/>
   </VBox>
 
   <VBox alignment="CENTER">
@@ -81,7 +81,12 @@
 
   <VBox alignment="CENTER">
     <Label text="Log List:"/>
-    <ListView fx:id="logList" minWidth="100" minHeight="100"/>
+    <ListView fx:id="logList" minWidth="200" minHeight="40"/>
+<!--    <ScrollPane fx:id="scrollPane" minWidth="200" minHeight="40">-->
+<!--      <content>-->
+<!--        <ListView fx:id="logList" minWidth="200" minHeight="40"/>-->
+<!--      </content>-->
+<!--    </ScrollPane>-->
   </VBox>
 
 </VBox>

@@ -1,0 +1,253 @@
+@font-face {
+    font-family: 'Kanit SemiBold';
+    src: url("fonts/Kanit_SemiBold.ttf");
+}
+
+.root {
+    -fx-font-family: 'Kanit SemiBold';
+}
+
+#body {
+    -fx-background-color: #fffced;
+}
+
+.button: hover {
+    -fx-cursor: hand;
+}
+
+/* Context menu and menu-items */
+.context-menu {
+    -fx-background-color: #604b4a;
+    -fx-background-insets: 0;
+}
+
+.context-menu .menu-item: focused {
+    -fx-background-color: #4d3b39;
+}
+
+.menu-item .label {
+    -fx-text-fill: #EBD7D6;
+    -fx-font-size: 16px;
+}
+
+.menu-item: focused .label {
+    -fx-text-fill: #fff;
+    -fx-font-size: 18px;
+}
+
+
+
+/* TextField (input the number) */
+#userGuess {
+    -fx-padding: 2;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-background-color: #fffced;
+    -fx-accent: #271d1b;
+    -fx-highlight-text-fill: #fffced;
+    -fx-border-style: solid inside;
+    -fx-border-width: 10px;
+    -fx-border-color: #271d1b;
+    -fx-prompt-text-fill: #b5b193;
+}
+
+#go {
+    -fx-padding: 6px;
+    -fx-background-color: #271d1b;
+    -fx-text-fill: #fffced;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-style: solid inside;
+    -fx-border-width: 10px 10px 10px 0;
+    -fx-border-color: #271d1b;
+}
+
+#go: hover {
+    -fx-cursor: hand;
+    -fx-background-color: #362727;
+}
+
+
+
+/* Table "resultTable" */
+.table-view .placeholder {
+    -fx-background-color: #604b4a;
+}
+
+.table-view {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #fffced;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.table-view .arrow {
+    -fx-background-color: #fffced;
+    -fx-padding: 4px;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view:focused {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #271d1b;
+    -fx-background-insets: 0;
+    -fx-padding: 0 0 5px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 30px;
+    -fx-text-fill: #fffced;
+}
+
+.table-view .column-header .label: hover {
+    -fx-cursor: hand;
+    -fx-font-size: 32px;
+}
+
+.table-cell {
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+    -fx-font-size: 26px;
+    -fx-text-fill: #fffced;
+}
+
+.table-cell: hover {
+    -fx-cursor: hand;
+    -fx-font-size: 28px;
+}
+
+.table-row-cell: odd {
+    -fx-background-color: #4d3b39;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell: even {
+    -fx-background-color: #604b4a;
+    -fx-padding: 0.0em;
+}
+
+/* Scrollbar */
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: #271d1b;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 5;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: #a08c8b;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: #a08c8b;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+
+}
+
+
+
+/* Errors Window */
+#errorsBody {
+    -fx-background-color: #610c20;
+}
+
+#errorsArea {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFEAF1;
+    -fx-highlight-fill: #5b0d1d;
+    -fx-background-insets: 0;
+    -fx-background-color: #db506b;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#errorsArea .content {
+    -fx-alignment: center;
+    -fx-background-color: #db506b;
+    -fx-padding: 10px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#errorsBody #closeButton {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fffced;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: #8D1B35;
+}
+
+#errorsBody #closeButton: hover {
+    -fx-font-size: 26px;
+    -fx-background-color: #C63456;
+}
+
+/* Guessed Window */
+#guessedBody {
+    -fx-background-color: #9FEB9A;
+}
+
+#successfulText {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFEAF1;
+    -fx-highlight-fill: #0A9038;
+    -fx-background-insets: 0;
+    -fx-background-color: #5EAC66;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#successfulText .content {
+    -fx-alignment: center;
+    -fx-background-color: #5EAC66;
+    -fx-padding: 10px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#guessedBody #closeButton {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fffced;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: #0A9038;
+}
+
+#guessedBody #closeButton: hover {
+    -fx-font-size: 26px;
+    -fx-background-color: #3AA150;
+}

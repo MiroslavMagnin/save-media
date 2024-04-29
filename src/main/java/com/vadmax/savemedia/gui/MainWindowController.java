@@ -5,6 +5,8 @@ import com.vadmax.savemedia.data.Config;
 import com.vadmax.savemedia.downloadsettings.RowHistoryTable;
 import com.vadmax.savemedia.downloadsettings.VideoQuality;
 import javafx.application.Platform;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -33,33 +36,41 @@ public class MainWindowController {
     @FXML
     private TextField downloadPath;
     @FXML
+    public Button downloadButton;
+    @FXML
     public ProgressBar downloadProgress;
     @FXML
     private TableView historyTable;
     @FXML
+    public ScrollPane scrollPane;
+    @FXML
     public ListView logList;
+    private boolean manualScroll = false;
 
 
     public void initialize() {
         // Инициализируем TextArea для класса, который будет в этот TextArea выводить строки выполнения библиотеки yt-dlp
         Cmd.logList = logList;
-        logList.setCellFactory(param -> new ListCell<String>() {
-            @Override
-            protected void updateItem(String item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty || item == null) {
-                    setText(null);
-                } else {
-                    setText(item);
-                    setWrapText(true);
-                }
-            }
-        });
 
+//        // ScrollPane and logList
+//        scrollPane.fitToWidthProperty().set(true);
+//        scrollPane.fitToHeightProperty().set(true);
+//        logList.setCellFactory(TextFieldListCell.forListView());
+//
+//        // Устанавливаем слушатель на изменения в ListView
+//        ObservableList<String> items = logList.getItems();
+//        items.addListener((ListChangeListener.Change<? extends String> change) -> {
+//            // Если список не пуст и вертикальная прокрутка отключена, прокручиваем вниз
+//            if (!change.getList().isEmpty()) {
+//                logList.scrollTo(items.size() - 1);
+//            }
+//        });
+
+        // Progress Bar
         Cmd.downloadProgress = downloadProgress;
         downloadProgress.setProgress(0.0);
 
-
+        // History Table
         // Создаем таблицу с историей скачанных видео
         historyTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -108,6 +119,13 @@ public class MainWindowController {
                 };
         actionColumn.setCellFactory(cellFactory);
         historyTable.getColumns().addAll(videoNameColumn, locationColumn, actionColumn);
+    }
+
+    private boolean isVvalueAtBottom() {
+        double scrollableHeight = scrollPane.getContent().getBoundsInLocal().getHeight();
+        double scrollHeight = scrollPane.getHeight();
+        double vvalue = scrollPane.getVvalue();
+        return vvalue == 1.0 || (scrollHeight == 0) || (scrollableHeight == 0);
     }
 
     @FXML
