@@ -18,7 +18,7 @@ public class FileManager {
     public FileManager(String fileName) {
         String userHome = System.getProperty("user.home");
         this.filePath = userHome + File.separator + "AppData" + File.separator + "Local" + File.separator +
-                "SaveTranslations" + File.separator + fileName + ".xml";
+                "SaveMedia" + File.separator + fileName + ".xml";
 
         this.file = new File(this.filePath);
         loadFields();

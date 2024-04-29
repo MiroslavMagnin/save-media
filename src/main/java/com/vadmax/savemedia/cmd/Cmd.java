@@ -5,6 +5,7 @@ import com.vadmax.savemedia.downloadsettings.VideoQuality;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,6 +25,8 @@ public class Cmd {
      * С помощью этой переменной получаем имя файла по умолчанию
      */
     private String link;
+    @FXML
+    public static ProgressBar downloadProgress;
     @FXML
     public static ListView logList;
 
@@ -94,6 +97,30 @@ public class Cmd {
         }).start();
     }
 
+    public ArrayList<String> runCmdWithOutput() {
+        final ArrayList<String>[] output = new ArrayList[]{new ArrayList<>()};
+        Thread runCmdWithOutputThread = new Thread(() -> {
+            try {
+                ProcessBuilder processBuilder = new ProcessBuilder(cmdArr);
+                System.out.println(cmdArr);
+                Process process = processBuilder.start();
+
+                output[0] = getLogOutput(process.getInputStream());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        runCmdWithOutputThread.start();
+
+        try {
+            runCmdWithOutputThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return output[0];
+    }
+
     private void logOutput(InputStream inputStream, String prefix) {
         new Thread(() -> {
             try {
@@ -110,18 +137,21 @@ public class Cmd {
                     // Выводим log в ListView
                     String finalLine = line;
                     Platform.runLater(() -> {
-                        // Обновление процента загрузки (удаляем прошлую строку с процентом и ставим новую)
+                        // Обновление процента загрузки
                         if (!logList.getItems().isEmpty()) {
                             String lastLogLine = logList.getItems().getLast().toString();
 
-                            if (finalLine.startsWith("[download]") && finalLine.contains("% of") &&
-                                    lastLogLine.startsWith("[download]") && lastLogLine.contains("% of")) {
-                                logList.getItems().removeLast();
+                            if (finalLine.startsWith("[download]") && finalLine.contains("% of")) {
+                                downloadProgress.setProgress(ExtractDataCmd.getPercent(finalLine) / 100); // Процент загрузки
+
+                                if (lastLogLine.startsWith("[download]") && lastLogLine.contains("% of")) {
+                                    logList.getItems().removeLast(); // Удаляем прошлую строку с процентом
+                                }
                             }
                         }
 
                         logList.getItems().add(finalLine);
-                        logList.scrollTo(logList.getItems().getLast()); // Автопрокрутка вниз, её надо реализовать получше
+                        logList.scrollTo(logList.getItems().getLast()); // TODO: Автопрокрутка вниз, её надо реализовать получше
                     });
                 }
 
@@ -156,27 +186,9 @@ public class Cmd {
         return output;
     }
 
-    public ArrayList<String> runCmdWithOutput() {
-        final ArrayList<String>[] output = new ArrayList[]{new ArrayList<>()};
-        Thread runCmdWithOutputThread = new Thread(() -> {
-            try {
-                ProcessBuilder processBuilder = new ProcessBuilder(cmdArr);
-                System.out.println(cmdArr);
-                Process process = processBuilder.start();
-
-                output[0] = getLogOutput(process.getInputStream());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        runCmdWithOutputThread.start();
-
-        try {
-            runCmdWithOutputThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public static class ExtractDataCmd {
+        public static double getPercent(String line) {
+            return Double.parseDouble(line.substring(line.indexOf("]")+2, line.indexOf("%")));
         }
-
-        return output[0];
     }
 }

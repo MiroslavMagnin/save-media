@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
@@ -32,6 +33,8 @@ public class MainWindowController {
     @FXML
     private TextField downloadPath;
     @FXML
+    public ProgressBar downloadProgress;
+    @FXML
     private TableView historyTable;
     @FXML
     public ListView logList;
@@ -52,6 +55,10 @@ public class MainWindowController {
                 }
             }
         });
+
+        Cmd.downloadProgress = downloadProgress;
+        downloadProgress.setProgress(0.0);
+
 
         // Создаем таблицу с историей скачанных видео
         historyTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

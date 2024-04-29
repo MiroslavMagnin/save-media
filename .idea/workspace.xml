@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e945c45-ee63-429e-86c5-c443595a75ae" name="Changes" comment="Обновление Cmd (улучшение получения данных)">
+    <list default="true" id="4e945c45-ee63-429e-86c5-c443595a75ae" name="Changes" comment="Добавление ProgressBar и style.css">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/SaveMediaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/SaveMediaApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/Cmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/Cmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/CmdInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/data/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/data/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/gui/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/gui/MainWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/main-window.fxml" afterDir="false" />
     </list>
@@ -45,24 +49,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Constructor.executor": "Run",
-    "Application.Experiment.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "Application.SaveMediaApp.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "M:/Java Projects/save-media",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.13809524",
-    "project.structure.side.proportion": "0.35827664",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Constructor.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Experiment.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SaveMediaApp.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;M:/Java Projects/save-media&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.13809524&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35827664&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="M:\Java Projects\save-media\src\main\java\com\vadmax\savemedia" />
@@ -178,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714239188991</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Замена LogArea на LogList">
+      <option name="closed" value="true" />
+      <created>1714303250692</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714303250692</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +210,9 @@
     <MESSAGE value="Вывод имени файла в таблицу [Кириллица не работает]" />
     <MESSAGE value="Обновление Cmd (улучшение получение данных)" />
     <MESSAGE value="Обновление Cmd (улучшение получения данных)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Обновление Cmd (улучшение получения данных)" />
+    <MESSAGE value="Замена LogArea на LogList" />
+    <MESSAGE value="Добавление ProgressBar и style.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление ProgressBar и style.css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
