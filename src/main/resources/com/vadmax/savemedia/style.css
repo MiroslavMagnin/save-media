@@ -143,23 +143,23 @@
 .table-cell {
     -fx-border-color: transparent;
     -fx-alignment: center;
-    -fx-font-size: 26px;
-    -fx-text-fill: #fffced;
+    -fx-font-size: 16px;
+    -fx-text-fill: #1a1b1e;
 }
 
 .table-cell: hover {
     -fx-cursor: hand;
-    -fx-font-size: 28px;
+    -fx-text-fill: #fff;
 }
 
 .table-row-cell: odd {
-    -fx-background-color: #4d3b39;
-    -fx-padding: 0.0em;
+    -fx-background-color: #cdcdcd;
+    -fx-padding: 0;
 }
 
 .table-row-cell: even {
-    -fx-background-color: #604b4a;
-    -fx-padding: 0.0em;
+    -fx-background-color: #B9B9B9;
+    -fx-padding: 0;
 }
 
 /* ListView (logList) and ScrollPane */
@@ -167,7 +167,19 @@
     -fx-background-color: #44464F;
     -fx-background-insets: 0;
     -fx-background-radius: 5;
+    -fx-text-size: 10px;
 }
+
+.list-view .cell {
+    -fx-background-color: #44464F;
+    -fx-text-fill: #fff;
+}
+
+.list-view .cell: focused {
+    -fx-background-color: #7C7E84;
+}
+
+
 
 
 /* Context menu and menu-items */

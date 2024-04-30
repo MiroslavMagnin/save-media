@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e945c45-ee63-429e-86c5-c443595a75ae" name="Changes" comment="Добавление ProgressBar и style.css">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/fonts/JetBrainsMono_Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/stylesFROMotherPROJECT.css" afterDir="false" />
+    <list default="true" id="4e945c45-ee63-429e-86c5-c443595a75ae" name="Changes" comment="Обновление стилей">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/SaveMediaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/SaveMediaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/gui/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/gui/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/main-window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/Cmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vadmax/savemedia/cmd/Cmd.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vadmax/savemedia/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +49,7 @@
   "keyToString": {
     "Application.Constructor.executor": "Run",
     "Application.Experiment.executor": "Run",
-    "Application.Launcher.executor": "Debug",
+    "Application.Launcher.executor": "Run",
     "Application.SaveMediaApp.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -60,10 +57,10 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "M:/Java Projects/save-media/src/main/resources/com/vadmax/savemedia",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.13809524",
     "project.structure.side.proportion": "0.35827664",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications"
+    "settings.editor.selected.configurable": "preferences.pathVariables"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -199,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714355750800</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Обновление стилей">
+      <option name="closed" value="true" />
+      <created>1714368490825</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714368490825</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,7 +226,8 @@
     <MESSAGE value="Обновление Cmd (улучшение получения данных)" />
     <MESSAGE value="Замена LogArea на LogList" />
     <MESSAGE value="Добавление ProgressBar и style.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление ProgressBar и style.css" />
+    <MESSAGE value="Обновление стилей" />
+    <option name="LAST_COMMIT_MESSAGE" value="Обновление стилей" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
