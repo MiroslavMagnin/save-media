@@ -77,7 +77,7 @@
 
 /* Progress Bar */
 .progress-bar {
-    -fx-accent: green;
+    -fx-accent: #67c9a4;
     -fx-background-insets: 0;
     -fx-background-radius: 5;
 }
@@ -167,7 +167,7 @@
     -fx-background-color: #44464F;
     -fx-background-insets: 0;
     -fx-background-radius: 5;
-    -fx-text-size: 10px;
+    -fx-font-size: 10px;
 }
 
 .list-view .cell {

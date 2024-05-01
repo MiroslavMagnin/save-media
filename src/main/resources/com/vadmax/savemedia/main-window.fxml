@@ -70,7 +70,7 @@
 
   <VBox alignment="CENTER">
     <Label text="Download progress:"/>
-    <ProgressBar fx:id="downloadProgress" minWidth="250" minHeight="30"/>
+    <ProgressBar fx:id="downloadProgress" minWidth="350" minHeight="30"/>
   </VBox>
 
   <VBox alignment="CENTER">

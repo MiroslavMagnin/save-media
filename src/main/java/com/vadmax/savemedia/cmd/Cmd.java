@@ -145,7 +145,7 @@ public class Cmd {
                                 downloadProgress.setProgress(ExtractDataCmd.getPercent(finalLine) / 100); // Процент загрузки
 
                                 if (lastLogLine.startsWith("[download]") && lastLogLine.contains("% of")) {
-                                    logList.getItems().remove(logList.getItems().getLast()); // Удаляем прошлую строку с процентом
+                                    logList.getItems().removeLast(); // Удаляем прошлую строку с процентом
                                 }
                             }
                         }
