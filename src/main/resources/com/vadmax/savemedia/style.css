@@ -95,6 +95,7 @@
 }
 
 .table-view {
+    -fx-background-color: #1a1b1e;
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
